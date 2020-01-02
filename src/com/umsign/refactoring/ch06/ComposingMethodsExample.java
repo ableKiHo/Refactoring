@@ -6,6 +6,7 @@ import java.util.Vector;
 public class ComposingMethodsExample {
     private Vector<Object> orders;
     private String name;
+    private int numberOfLateDeliveries = 2;
 
     void printOwing() {
         printBanner();
@@ -33,5 +34,14 @@ public class ComposingMethodsExample {
         System.out.println("*************************");
         System.out.println("***** Customer Owes *****");
         System.out.println("*************************");
+    }
+
+    int getRating() {
+        //return (moreThanFiveLateDeliveries() ? 2 : 1);
+        return (numberOfLateDeliveries > 5) ? 2 : 1;
+    }
+
+    private boolean moreThanFiveLateDeliveries() {
+        return numberOfLateDeliveries > 5;
     }
 }
