@@ -7,6 +7,8 @@ public class ComposingMethodsExample {
     private Vector<Object> orders;
     private String name;
     private int numberOfLateDeliveries = 2;
+    private int quantity;
+    private int itemPrice;
 
     void printOwing() {
         printBanner();
@@ -43,5 +45,18 @@ public class ComposingMethodsExample {
 
     private boolean moreThanFiveLateDeliveries() {
         return numberOfLateDeliveries > 5;
+    }
+
+    double getPrice() {
+        return basePrice() * discountFactor();
+    }
+
+    private double discountFactor() {
+        if(basePrice() > 1000) return  0.95;
+        return  0.98;
+    }
+
+    private int basePrice() {
+        return quantity * itemPrice;
     }
 }
